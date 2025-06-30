@@ -1,0 +1,2 @@
+r, p_value = stats.pearsonr(df['Hours_Coding'], df['Num_Bugs'])
+print(f"Pearson's r: {r:.3f} (p-value: {p_value:.4f})")
