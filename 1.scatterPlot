@@ -1,0 +1,7 @@
+plt.figure(figsize=(10, 6))
+plt.scatter(df['Hours_Coding'], df['Num_Bugs'], color='blue', alpha=0.7)
+plt.title('Hours Spent Coding vs Number of Bugs')
+plt.xlabel('Hours Coding')
+plt.ylabel('Number of Bugs')
+plt.grid(True)
+plt.show()
