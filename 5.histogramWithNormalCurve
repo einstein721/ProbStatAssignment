@@ -1,0 +1,20 @@
+mu, sigma = df['Num_Bugs'].mean(), df['Num_Bugs'].std()
+bin_centers = [5, 15, 25, 35, 45, 55]
+
+plt.figure(figsize=(10, 6))
+bars = plt.bar(bin_centers, freq_table, width=10, edgecolor='black', alpha=0.7, label='Binned Data')
+for bar in bars:
+    height = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width()/2., height, f'{int(height)}', ha='center', va='bottom')
+
+x = np.linspace(0, 60, 500)
+y = stats.norm.pdf(x, mu, sigma) * len(df) * 10  # Scale to match histogram
+plt.plot(x, y, 'r-', linewidth=2, label=f'Normal Curve (μ={mu:.1f}, σ={sigma:.1f})')
+
+plt.title('Distribution of Number of Bugs (Binned)')
+plt.xlabel('Number of Bugs')
+plt.ylabel('Frequency')
+plt.xticks(bin_edges)
+plt.grid(axis='y', alpha=0.5)
+plt.legend()
+plt.show() 
