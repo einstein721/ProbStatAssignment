@@ -1,0 +1,6 @@
+bin_edges = [0, 10, 20, 30, 40, 50, 60]
+bin_labels = ['0-10', '11-20', '21-30', '31-40', '41-50', '51-60']
+df['Bins'] = pd.cut(df['Num_Bugs'], bins=bin_edges, labels=bin_labels)
+freq_table = df['Bins'].value_counts().sort_index()
+print("\nFrequency Distribution Table:")
+print(freq_table)
